@@ -1,0 +1,35 @@
+body {
+    background-color: #eee;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+#selector-tester {
+    background-color: #ccc;
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+#selector-tester form {
+    margin: 0;
+}
+#selector-tester h1 {
+    margin: 0.4em 0 0.2em 0;
+}
+#selector {
+    width: 25em;
+    font-size: 2em;
+}
+.found-element {
+    border: 3px solid #a66d00;
+    border-radius: 0.5em;
+    padding: 0.3em;
+    background-color: #fff;
+    -moz-transition: background-color 1s linear;
+    -o-transition: background-color 1s linear;
+    -webkit-transition: background-color 1s linear;
+    transition: background-color 1s linear;
+}
+.found-element:hover {
+    background-color: #d3ab5f;
+}

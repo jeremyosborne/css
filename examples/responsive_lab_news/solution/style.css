@@ -1,0 +1,126 @@
+/* Basic reset. */
+body, html {
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    color: black;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+a, a:visited, a:link, a:hover {
+    text-decoration: none;
+    color: #444;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.hidden {
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    -webkit-transition: all 0.5s linear;
+    opacity: 0;
+}
+
+/* Basic design and overrides. */
+body > h1 {
+    padding: 1em;
+    text-align: right;
+    color: #555;
+    
+    box-shadow: 0 0.1em 0.2em rgba(180,180,180,0.5);
+}
+
+#news {
+    width: 80%;
+    margin: 1em auto 0 auto;
+    overflow: auto;
+    line-height: 1.3;
+}
+
+article {
+    display: inline-block;
+    vertical-align: top;
+    width: 29%;
+    margin: 1%;
+    background-color: white;
+    padding: 1%;
+}
+article > header {
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid #ccc;
+}
+article > header > img {
+    display: none;
+}
+article > header h1 {
+    margin: 0 0 0.2em 0;
+    font-size: 1.2em;
+    text-align: center;
+}
+article > header h2 {
+    margin: 0 0 0.6em 0;
+    font-size: 0.8em;
+    color: #888;
+}
+article > section {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+article > section p {
+    margin: 0;
+}
+
+article > section a {
+    vertical-align: top;
+    float: left;
+    margin: 0 1em 1em 0;
+}
+
+
+/* For regular size view and below */
+@media only screen and (max-width: 1024px) {
+    /* Shrink the font just a bit. */
+    article {
+        font-size: 0.8em;
+    }
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (max-width: 960px) {
+    /* Drop to two columns. */
+    article {
+        width: 46%;
+    }
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (max-width: 768px) {
+    /* Single column. */
+    article {
+        width: 100%;
+    }
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 480px) {
+    /* Image plus headline. */
+    article section  {
+        display: none;
+    }
+    article header {
+        overflow: auto;
+    }
+    article header > img {
+        display: inline;
+        float: left;
+        margin: 0 0.2em 0.2em 0;
+    }
+    article > header h1 {
+        text-align: left;
+    }
+}

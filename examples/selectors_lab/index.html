@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Selector Test</title>
+    <meta charset="UTF-8"/>
+    <link href="lib/style.css" rel="stylesheet"/>
+    <script src="lib/jquery.js"></script>
+    <script src="lib/app.js"></script>
+</head>
+<body>
+    <section id="selector-tester">
+        <header>
+            <h1>Selector Tester</h1>
+        </header>
+        <form action="javascript:void(0)" id="test-form">
+            <label>
+                Type in your selector and hit enter:
+                <input autofocus required type="text" name="selector" id="selector">
+            </label>
+        </form>
+        <div id="things-to-test">
+            <h3>Things to test</h3>
+            <ol id="test-answers">
+                <li>How many paragraphs are on the page?</li>
+                <li>What is the selector used to find paragraphs adjacent to an h1?</li>
+                <li>What is the selector used to find paragraphs indirect siblings to an h1?</li>
+                <li>Find at least two selectors that can find the section element with the class name article-content.</li>
+                <li>Find the span that contains "world" as one of two space delimited items in the "data-test" attribute.</li>
+                <li>Find the first child and the last child in this list with the "test-answers" id (think commas).</li>
+                <li>Find every odd entry in this list of "test-answers".</li>
+                <li>Find elements with a class attribute of any value.</li>
+                <li>Find elements with a data-test attribute beginning with "hello".</li>
+                <li>Find elements with a data-test attribute that ends exactly with "world".</li>
+                <li>Find elements with an id that contains the substring "block-header".</li>
+                <li>Find elements with an id that contains a hyphenated list of values that begins with "test".</li>
+                <li>Compare the following: <strong>#test-answers :nth-child(2)</strong> and <strong>#test-answers :nth-last-child(2).</strong></li>
+                <li>Compare the following: <strong>#test-answers li:nth-of-type(2)</strong> and <strong>#test-answers li:nth-last-of-type(2).</strong></li>
+                <li>Find all of the empty tags on the page (e.g. input, img, etc).</li>
+                <li>Find anchor tags that are hyperlinks of some kind (clickable).</li>
+                <li>Find elements that are declared to be in "en"glish in the document (note: this uses a specific pseudo-class selector). Understand why the entire document is considered selected.</li>
+                <li>Find all p tags that are, by declaration or inheritence, in "en"glish.</li>
+                <li>Find all enabled input elements on the page.</li>
+            </ol>
+        </div>
+        <footer>
+            <h1>Results</h1>
+            <p>Selector used: <span id="selector-used"></span></p>
+            <p>Number of elements found: <span id="num-elements-found"></span></p>
+        </footer>
+    </section>
+    <section id="test-block">
+        <a name="test-block-top"></a>
+        <header id="test-block-header">
+            <h1 class="block-header">Section of Awesome</h1>
+        </header>
+        <article>
+            <header>
+                <h1>Lorem Ipsum Awesomeness</h1>
+            </header>
+            <section class="article-content">
+                <p>
+                    <span data-test="hello world">Lorem ipsum dolor sit amet</span>, consectetur adipiscing elit.
+                    Aliquam tempor lorem non tortor hendrerit vel feugiat
+                    quam aliquam. Integer elit lacus, tincidunt sed pulvinar
+                    eu, scelerisque vel lorem. Vivamus sit amet urna id
+                    magna mattis tincidunt et in sapien. Mauris imperdiet mi
+                    ut leo convallis sodales. Cras tincidunt vulputate
+                    sapien suscipit facilisis. Maecenas adipiscing purus
+                    libero, imperdiet dapibus magna. Duis fringilla viverra
+                    purus, eget convallis sem lacinia id. Pellentesque
+                    sagittis ornare ornare. Aenean volutpat, elit sed
+                    gravida facilisis, nisl leo accumsan urna, ut congue
+                    felis nisl nec mauris. Suspendisse faucibus laoreet
+                    lacus, in luctus dui luctus vitae. Aliquam erat
+                    volutpat. Donec id felis lacinia justo tristique
+                    dignissim nec id est. Nullam sit amet porta mauris.
+                    Mauris gravida neque ac leo molestie hendrerit. Sed
+                    ultricies euismod risus, nec iaculis elit elementum ut.
+                    Nam lectus lectus, consectetur id aliquam non, cursus
+                    sit amet velit. In ut arcu non nisl pharetra lacinia sit
+                    amet nec mi. Aenean orci justo, hendrerit eget luctus
+                    sed, placerat sed ligula. Mauris convallis, tortor ac
+                    vestibulum semper, orci dui rutrum nunc, nec pulvinar
+                    quam justo vulputate justo.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Aliquam tempor lorem non tortor hendrerit vel feugiat
+                    quam aliquam. Integer elit lacus, tincidunt sed pulvinar
+                    eu, scelerisque vel lorem. Vivamus sit amet urna id
+                    magna mattis tincidunt et in sapien. Mauris imperdiet mi
+                    ut leo convallis sodales. Cras tincidunt vulputate
+                    sapien suscipit facilisis. Maecenas adipiscing purus
+                    libero, imperdiet dapibus magna. Duis fringilla viverra
+                    purus, eget convallis sem lacinia id. Pellentesque
+                    sagittis ornare ornare. Aenean volutpat, elit sed
+                    gravida facilisis, nisl leo accumsan urna, ut congue
+                    felis nisl nec mauris. Suspendisse faucibus laoreet
+                    lacus, in luctus dui luctus vitae. Aliquam erat
+                    volutpat. Donec id felis lacinia justo tristique
+                    dignissim nec id est. Nullam sit amet porta mauris.
+                    Mauris gravida neque ac leo molestie hendrerit. Sed
+                    ultricies euismod risus, nec iaculis elit elementum ut.
+                    Nam lectus lectus, consectetur id aliquam non, cursus
+                    sit amet velit. In ut arcu non nisl pharetra lacinia sit
+                    amet nec mi. Aenean orci justo, hendrerit eget luctus
+                    sed, placerat sed ligula. Mauris convallis, tortor ac
+                    vestibulum semper, orci dui rutrum nunc, nec pulvinar
+                    quam justo vulputate justo.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Aliquam tempor lorem non tortor hendrerit vel feugiat
+                    quam aliquam. Integer elit lacus, tincidunt sed pulvinar
+                    eu, scelerisque vel lorem. Vivamus sit amet urna id
+                    magna mattis tincidunt et in sapien. Mauris imperdiet mi
+                    ut leo convallis sodales. Cras tincidunt vulputate
+                    sapien suscipit facilisis. Maecenas adipiscing purus
+                    libero, imperdiet dapibus magna. Duis fringilla viverra
+                    purus, eget convallis sem lacinia id. Pellentesque
+                    sagittis ornare ornare. Aenean volutpat, elit sed
+                    gravida facilisis, nisl leo accumsan urna, ut congue
+                    felis nisl nec mauris. Suspendisse faucibus laoreet
+                    lacus, in luctus dui luctus vitae. Aliquam erat
+                    volutpat. Donec id felis lacinia justo tristique
+                    dignissim nec id est. Nullam sit amet porta mauris.
+                    Mauris gravida neque ac leo molestie hendrerit. Sed
+                    ultricies euismod risus, nec iaculis elit elementum ut.
+                    Nam lectus lectus, consectetur id aliquam non, cursus
+                    sit amet velit. In ut arcu non nisl pharetra lacinia sit
+                    amet nec mi. Aenean orci justo, hendrerit eget luctus
+                    sed, placerat sed ligula. Mauris convallis, tortor ac
+                    vestibulum semper, orci dui rutrum nunc, nec pulvinar
+                    quam justo vulputate justo.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Aliquam tempor lorem non tortor hendrerit vel feugiat
+                    quam aliquam. Integer elit lacus, tincidunt sed pulvinar
+                    eu, scelerisque vel lorem. Vivamus sit amet urna id
+                    magna mattis tincidunt et in sapien. Mauris imperdiet mi
+                    ut leo convallis sodales. Cras tincidunt vulputate
+                    sapien suscipit facilisis. Maecenas adipiscing purus
+                    libero, imperdiet dapibus magna. Duis fringilla viverra
+                    purus, eget convallis sem lacinia id. Pellentesque
+                    sagittis ornare ornare. Aenean volutpat, elit sed
+                    gravida facilisis, nisl leo accumsan urna, ut congue
+                    felis nisl nec mauris. Suspendisse faucibus laoreet
+                    lacus, in luctus dui luctus vitae. Aliquam erat
+                    volutpat. Donec id felis lacinia justo tristique
+                    dignissim nec id est. Nullam sit amet porta mauris.
+                    Mauris gravida neque ac leo molestie hendrerit. Sed
+                    ultricies euismod risus, nec iaculis elit elementum ut.
+                    Nam lectus lectus, consectetur id aliquam non, cursus
+                    sit amet velit. In ut arcu non nisl pharetra lacinia sit
+                    amet nec mi. Aenean orci justo, hendrerit eget luctus
+                    sed, placerat sed ligula. Mauris convallis, tortor ac
+                    vestibulum semper, orci dui rutrum nunc, nec pulvinar
+                    quam justo vulputate justo.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Aliquam tempor lorem non tortor hendrerit vel feugiat
+                    quam aliquam. Integer elit lacus, tincidunt sed pulvinar
+                    eu, scelerisque vel lorem. Vivamus sit amet urna id
+                    magna mattis tincidunt et in sapien. Mauris imperdiet mi
+                    ut leo convallis sodales. Cras tincidunt vulputate
+                    sapien suscipit facilisis. Maecenas adipiscing purus
+                    libero, imperdiet dapibus magna. Duis fringilla viverra
+                    purus, eget convallis sem lacinia id. Pellentesque
+                    sagittis ornare ornare. Aenean volutpat, elit sed
+                    gravida facilisis, nisl leo accumsan urna, ut congue
+                    felis nisl nec mauris. Suspendisse faucibus laoreet
+                    lacus, in luctus dui luctus vitae. Aliquam erat
+                    volutpat. Donec id felis lacinia justo tristique
+                    dignissim nec id est. Nullam sit amet porta mauris.
+                    Mauris gravida neque ac leo molestie hendrerit. Sed
+                    ultricies euismod risus, nec iaculis elit elementum ut.
+                    Nam lectus lectus, consectetur id aliquam non, cursus
+                    sit amet velit. In ut arcu non nisl pharetra lacinia sit
+                    amet nec mi. Aenean orci justo, hendrerit eget luctus
+                    sed, placerat sed ligula. Mauris convallis, tortor ac
+                    vestibulum semper, orci dui rutrum nunc, nec pulvinar
+                    quam justo vulputate justo.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Aliquam tempor lorem non tortor hendrerit vel feugiat
+                    quam aliquam. Integer elit lacus, tincidunt sed pulvinar
+                    eu, scelerisque vel lorem. Vivamus sit amet urna id
+                    magna mattis tincidunt et in sapien. Mauris imperdiet mi
+                    ut leo convallis sodales. Cras tincidunt vulputate
+                    sapien suscipit facilisis. Maecenas adipiscing purus
+                    libero, imperdiet dapibus magna. Duis fringilla viverra
+                    purus, eget convallis sem lacinia id. Pellentesque
+                    sagittis ornare ornare. Aenean volutpat, elit sed
+                    gravida facilisis, nisl leo accumsan urna, ut congue
+                    felis nisl nec mauris. Suspendisse faucibus laoreet
+                    lacus, in luctus dui luctus vitae. Aliquam erat
+                    volutpat. Donec id felis lacinia justo tristique
+                    dignissim nec id est. Nullam sit amet porta mauris.
+                    Mauris gravida neque ac leo molestie hendrerit. Sed
+                    ultricies euismod risus, nec iaculis elit elementum ut.
+                    Nam lectus lectus, consectetur id aliquam non, cursus
+                    sit amet velit. In ut arcu non nisl pharetra lacinia sit
+                    amet nec mi. Aenean orci justo, hendrerit eget luctus
+                    sed, placerat sed ligula. Mauris convallis, tortor ac
+                    vestibulum semper, orci dui rutrum nunc, nec pulvinar
+                    quam justo vulputate justo.
+                </p>
+            </section>
+        </article>
+        <footer>
+            <nav>
+                <a href="javascript:void(0)">More Awesome</a>
+                |
+                <a href="#test-block-top">Return to the Top</a>
+                |
+                <a href="javascript:void(0)">About</a>
+            </nav>
+        </footer>
+    </section>
+</body>
+</html>

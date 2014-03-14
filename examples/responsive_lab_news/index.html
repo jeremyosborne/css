@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>News Reader</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <link href="style.css" rel="stylesheet"/>
+        <script src="http://yui.yahooapis.com/3.8.1/build/yui/yui-min.js"></script>       
+        <script src="code.js"></script>
+        <script id="template-article" type="text/x-template">
+<article>
+    <header>
+        {{{img}}}
+        <hgroup>
+            <h1>{{title}}</h1>
+            <h2>{{pubDate}}, <a href="{{source.url}}">{{source.content}}</a></h2>
+        </hgroup>
+    </header>
+    <section>
+        {{{description}}}
+    </section>
+</article>
+        </script>
+        <script id="template-img" type="text/x-template">
+<img src="{{url}}"/>
+        </script>
+    </head>
+    <body>
+        <h1>Today's Headlines</h1>
+        <div id="news">
+            
+        </div>
+    </body>
+</html>

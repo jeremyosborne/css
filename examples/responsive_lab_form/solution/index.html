@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Leave a comment...</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        
+        <link href="http://yui.yahooapis.com/3.10.0/build/cssnormalize/cssnormalize-min.css" rel="stylesheet"/>
+        <link href="style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <h1 class="header">Leave a comment...</h1>
+        <form action="javascript:void(0);">
+            <div class="form-row">
+                <label>Identity photo:</label>
+                <img src="../assets/cow.png" id="id-photo"/>
+            </div>
+            <div class="form-row">
+                <label for="email">Email:</label><input required="required" type="email" name="email" id="email" placeholder="youremail@domain.com"/>
+            </div>
+            <div class="form-row">
+                <label for="password">Password:</label><input required="required" type="password" name="password" id="password" placeholder="password123"/>
+            </div>
+            <div class="form-row">
+                <label for="comment">Comment:</label><textarea required="required" name="comment" id="comment" placeholder="Your comment is welcome...."></textarea>
+            </div>
+            <div class="form-row">
+                <input type="submit" id="submit" value="submit comment"/>
+            </div>
+        </form>
+    </body>
+</html>

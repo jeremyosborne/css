@@ -1,0 +1,78 @@
+.header {
+    padding: 1em;
+    text-align: right;
+    margin: 0;
+    
+    text-shadow: 0 0 2px rgba(33, 33, 33, 0.6);
+    box-shadow: 0 1px 1px #aaa, 0 2px 2px #aaa, 0 3px 4px #aaa;
+}
+
+:focus {
+    border: 1px solid black;
+    outline: none;
+}
+
+input:not([type="submit"]):valid, textarea:valid {
+    -moz-transition: all 0.75s;
+    -o-transition: all 0.75s;
+    -webkit-transition: all 0.75s;
+    transition: all 0.75s;
+    
+    background-color: rgba(0, 240, 0, 0.2);
+    border: 1px solid rgba(0, 240, 0, 0.2);
+}
+
+form {
+    width: 500px;
+    margin: 5em auto;
+}
+.form-row {
+    padding: 0.5em;
+}
+.form-row label, .form-row input, .form-row textarea {
+    display: inline-block;
+    width: 45%;
+    vertical-align: middle;
+}
+#id-photo {
+    width:226px; 
+    height:146px;
+}
+#submit {
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    form {
+        width: 80%;
+    }
+    .form-row label {
+        display: block;
+    }
+    .form-row input, .form-row textarea {
+        width: 100%;
+    }
+    #submit {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .header {
+        font-size: 1.5em;
+        padding: 0.2em;
+
+        text-shadow: none;
+        box-shadow: 0 0 1px #ccc;
+    }
+    form {
+        width: 95%;
+    }
+    #id-photo {
+        width:113px; 
+        height:73px;
+    }
+}

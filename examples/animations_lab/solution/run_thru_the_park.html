@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>run thru the park</title>
+        <style>
+
+/*
+ * TODO:
+ * Put an animation together of a stickperson running through a park.
+ * - Build a viewport around the animation.
+ * - Have the sky lighten and darken in a repeating day and night cycle.
+ * - Have the moon and sun rotate around the sky.
+ * - Have the sidewalk run in one direction forever at the bottom of the
+ *   screen.
+ * - Use a small amount of JavaScript to effect the runner sprite so that it
+ *   looks like he is running on the sidewalk.
+ */       
+ 
+/* Minor reset. */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: black;
+}
+
+/*
+ * NOTE: For the sake of brevity in this file, I used only the webkit
+ * examples.
+ * When instructing the class, have people use the correct prefix for the
+ * browser they are using.
+ * 
+ * The finished file should contain the complete solution.
+ */
+
+/* Set the viewport within the window. */
+#viewport {
+    position: absolute;
+    top: 4em;
+    left: 4em;
+    right: 4em;
+    bottom: 4em;
+
+    overflow: hidden;
+
+    /* Viewport acts as the skybox for the day night cycle. */
+    -webkit-animation-name: skybox;
+    /* A full day cycle will take 60s */
+    -webkit-animation-duration: 30s;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+@-webkit-keyframes skybox {
+    0% {
+        /* Dark. */
+        background-color: #280671;
+    }
+    33% {
+        /* Twilight/dawn. */
+        background-color: #ef002a;
+    }
+    66% {
+        /* Morning/afternoon. */
+        background-color: #FFD573;
+    }
+    100% {
+        /* Midday. */
+        background-color: #F3FD72;
+    }
+}
+
+
+
+/* Sun and moon cycle. */
+#sun-moon {
+    background-image: url('img/sun_and_moon.png');
+    background-repeat: no-repeat;
+    height: 800px;
+    width: 290px;
+    
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    margin: -400px 0 0 -145px;
+    
+    /* Viewport acts as the skybox for the day night cycle. */
+    -webkit-animation-name: sunmoon;
+    /* A full day cycle will take 60s */
+    -webkit-animation-duration: 60s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+@-webkit-keyframes sunmoon {
+    0% {
+        /* Since we start off at night, need to show the moon first. */
+        -webkit-transform: rotate(180deg);
+    }
+    50% {
+        -webkit-transform: rotate(360deg);
+    }
+    100% {
+        /* Want to rotate all the way back around. */
+        -webkit-transform: rotate(540deg);
+    }
+}
+
+
+
+/* The path to run on (in the foreground). */
+#sidewalk {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    /* Allow for animation outside of the view port. */
+    width: 200%;
+    
+    background-image: url('img/sidewalk.png');
+    
+    -webkit-animation-name: sidewalkscroll;
+    -webkit-animation-duration: 1s;
+    /* Make the scrolling smooth and repeat forever, which will make it look
+     * like it is running smoothly in one direction. */
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+@-webkit-keyframes sidewalkscroll {
+    0% {
+        left: 0;
+    }
+    100% {
+        /* The width of one sidewalk image. */
+        left: -100px;
+    }
+}
+
+/* Runner on the sidewalk. */
+#runner {
+    position: absolute;
+    bottom: 60px;
+    left: 35%;
+    /* Height and width determined by the sprite. */
+    height: 100px;
+    width: 45px;
+    /* Hide the other frame of the sprite. */
+    overflow: hidden;    
+
+    /* However, some things don't yet work well in CSS3 animations
+     * like sprite transitions. Animations want to run smoothly, but
+     * to use sprites, we want instantaneous transitions between the background
+     * images.
+     */
+    background-image: url('img/runner.png');
+    background-repeat: no-repeat;
+}
+#runner.frame1 {
+    /* Animation of sprite happens via background position. */
+    background-position: 0 0;
+}
+#runner.frame2 {
+    /* Each frame is 45px horizontally separated. */
+   background-position: -45px 0;
+}
+
+
+        </style>
+        <script>
+// A bit o' animation control, where JavaScript is easier than CSS.
+window.onload = function() {
+    var element = document.querySelector("#runner");
+    var index = 0;
+    var frameList = ["frame1", "frame2"];
+    
+    setInterval(function() {
+        index += 1;
+        if (index >= frameList.length) {
+            index = 0;
+        }
+        element.className = frameList[index];
+    }, 250);
+};
+        </script>
+    </head>
+    <body>
+        <div id="viewport">
+            <div id="sun-moon"></div>
+            <div id="sidewalk"></div>
+            <div id="runner"></div>
+        </div>
+    </body>
+</html>

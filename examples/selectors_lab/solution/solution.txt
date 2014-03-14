@@ -1,0 +1,62 @@
+How many paragraphs are on the page?
+    use the p selector
+
+What is the selector used to find paragraphs adjacent to an h1?
+    h1 + p
+
+What is the selector used to find paragraphs indirect siblings to an h1?
+    h1 ~ p
+
+Find at least two selectors that can find the section element with the class 
+name article-content.
+    section.article-content
+    section[class='article-content']
+
+Find the span that contains "world" as one of two space delimited items in the 
+"data-test" attribute.
+    span[data-test~="world"]
+
+Find the first child and the last child in this list with the "test-answers" 
+id (think commas).
+    #test-answers :first-child, #test-answers :last-child
+    
+Find every odd entry in this list of "test-answers".
+    #test-answers :nth-child(odd)
+        
+Find elements with a class attribute of any kind.
+    section[class]
+
+Find elements with a data-test attribute beginning with hello.
+    span[data-test^="hello"]
+    
+Find elements with a data-test attribute that ends exactly with world.
+    span[data-test$="world"]
+    
+Find elements with an id that contains the substring "block-header".
+    header[id*="block-header"]
+
+Find elements with an id that contains a hyphenated list of values that 
+begins with "test".
+    header[id|="test"]
+
+Compare the following: #test-answers :nth-child(2) and #test-answers :nth-last-child(2).
+
+Compare the following: #test-answers li:nth-of-type(2) and #test-answers li:nth-last-of-type(2).
+
+Find all of the empty tags on the page (e.g. input, img, etc).
+    :empty 
+
+Find anchor tags that are hyperlinks of some kind (clickable).
+    a:link
+
+Find elements that are declared to be in "en"glish in the document (note:
+this uses a specific pseudo-class selector). Understand why the entire
+document is considered selected.
+    :lang(en)
+
+Find all p tags that are, by declaration or inheritence, in english.
+    p:lang(en)
+
+Find all enabled input elements on the page.
+    input:enabled
+    
