@@ -1,0 +1,168 @@
+/* Requirements:
+    - Match layouts for the provided mockups
+    - Adapt to various screen/browser widths
+    - Degrade for legacy while leveraging modern techniques
+*/
+
+/* Refresher Content:
+    - Reseting default styles (with YUI http://yuilibrary.com/yui/docs/cssreset/)
+    - Setting base font-size (with YUI http://yuilibrary.com/yui/docs/cssfonts/)
+    - Percentage widths
+    - Min/Max Height/Width
+    - Scalable images
+    - Controlling absolute positioning
+    - Managing overflow
+    - Media queries
+    - Legacy support
+*/
+
+/*
+    Solution Walkthrough:
+    - Percent font-size units are used to scale to base font-size.
+    - Text-related spacing (margin/padding) in EM units to scale to base font-size.
+    - Use display: none to hide content.
+    - Percent widths are used to accommodate various browser/device widths.
+    - Min-Max Height/Width use to constrain layout and image scaling.
+    - Absolute positioning to overlay blockquote on image.
+    - Inline-block for centered horizontal layout.
+    - Media queries to adapt layout based on device width, browser width,
+      and/or resolution.
+    - Use -webkit-scrolling-touch to smooth out scrolling.
+*/
+
+.top-stories-module {
+    margin: auto; /* Keep centered after max-width exceeded */
+}
+
+.top-stories-module p {
+    margin-top: 0.3em; /* Scale space between heading/cite and abstract with font size */
+}
+
+.top-stories-module a {
+    color: #000;
+    text-decoration: none;
+}
+
+.top-stories-module h3 {
+    font-weight: bold;
+}
+
+.top-stories-module cite {
+    color: #7C7C7D;
+    font-size: 85%; /* Percentage font to scale with base-font changes */
+}
+
+.top-story blockquote {
+    padding: 10px;
+}
+
+.top-story h3 {
+    font-size: 120%;
+}
+
+.top-story cite {
+    display: none;
+}
+
+.story-image {
+    display: block;
+}
+
+.top-stories {
+    border-bottom: 1px solid #ccc;
+}
+
+.story {
+    border-top: 1px solid #ccc;
+    padding: 5px 10px;
+    min-height: 65px;
+    _height: 65px; /* IE6: min-height */
+    overflow: hidden; /* self-clearing shortcut */
+}
+
+.story h3 {
+    font-size:110%;
+}
+
+.story .story-image {
+    border: 1px solid #999;
+    float: left;
+    margin-right: 10px;
+    padding: 3px;
+    width: 33%; /* Scale to fill container */
+    max-width: 180px;
+}
+
+.story-image img {
+    border: none;
+    display: block; /* Collapse bottom margin */
+    -ms-interpolation-mode: bicubic; /* IE7+: Smooths out image scaling */
+    width: 100%; /* fill available space */
+}
+
+@media screen and (max-width:580px) {
+
+    /* Hide for smaller screens */
+    .story p {
+        display: none;
+    }
+}
+
+@media screen and (min-width:560px) {
+    .story h3,
+    .story cite {
+        display: inline;
+    }
+    .story p {
+        display: block;
+    }
+
+/* mention in refresh */
+    .top-story {
+        position: relative; /* Contain the position: absolute blockquote */
+    }
+
+    .top-story a {
+        color: #fff;
+    }
+
+    .top-story p {
+        color: #999;
+    }
+
+    .top-story blockquote {
+        background: #000; /* Legacy fallback */
+        background: rgba(0, 0, 0, 0.75);
+        position: absolute;
+        bottom: 10%; /* Relative to height */
+        width: 50%;
+    }
+}
+
+@media screen and (min-width:1000px) {
+    .top-story {
+        width: 75%;
+    }
+
+    .top-stories-module {
+        max-width: 1024px; /* Constrain scaling */
+    }
+
+    .top-story,
+    .top-stories {
+        display: inline-block; /* Preferred to float for alignment control */
+        vertical-align: middle;
+    }
+
+    .top-stories {
+        border: 1px solid #ccc;
+        overflow: auto;
+        width: 24%;
+        max-height: 500px; /* Contain the scaling size */
+        -webkit-overflow-scrolling: touch; /* smooth out webkit mobile scrolling */
+    }
+
+    .story:first-child {
+        border-top: 0;
+    }
+}

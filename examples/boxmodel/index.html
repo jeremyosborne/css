@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The CSS Box Model</title>
+
+	<style type="text/css">
+body {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 2em;
+    background-color: #ddd;
+    color: white;
+}
+
+#header {
+    /* By default, a div is a block level element. */
+    background-color: #e768ad;
+    border: #ad67ad 1em solid;
+    margin: 1em 1em 1em 1em;
+    padding: 1em 1em 1em 1em;
+}
+#inline-block-element {
+    display: inline-block;
+    background-color: #ff7673;
+    border: #bf7370 1em solid;
+    margin: 1em 1em 1em 1em;
+    padding: 1em 1em 1em 1em;
+}
+#inline-element {
+    /* By default, a span is an inline element. */
+    background-color: #67e46f;
+    /* NOTE: Border off by default. Turn the border on to see the "box model"
+       for inline elements. */
+    /* border: #65ab69 1em solid; */ 
+}
+	</style>
+</head>
+
+<body>
+    <div id="header">Block element</div>
+    <div id="container">
+        <span id="inline-block-element">Inline-block element</span>
+        <!-- By default, inline-block elements do not cause line breaks. -->
+        <br>
+        <span id="inline-element">
+            Lorem ipsum dolor sit amet, consectetur 
+            adipiscing elit.
+            Aliquam tempor lorem non tortor hendrerit vel feugiat
+            quam aliquam. Integer elit lacus, tincidunt sed pulvinar
+            eu, scelerisque vel lorem. Vivamus sit amet urna id
+            magna mattis tincidunt et in sapien. Mauris imperdiet mi
+            ut leo convallis sodales. Cras tincidunt vulputate
+            sapien suscipit facilisis. Maecenas adipiscing purus
+            libero, imperdiet dapibus magna. Duis fringilla viverra
+            purus, eget convallis sem lacinia id. Pellentesque
+            sagittis ornare ornare. Aenean volutpat, elit sed
+            gravida facilisis, nisl leo accumsan urna, ut congue
+            felis nisl nec mauris. Suspendisse faucibus laoreet
+            lacus, in luctus dui luctus vitae. Aliquam erat
+            volutpat. Donec id felis lacinia justo tristique
+            dignissim nec id est. Nullam sit amet porta mauris.
+            Mauris gravida neque ac leo molestie hendrerit. Sed
+            ultricies euismod risus, nec iaculis elit elementum ut.
+            Nam lectus lectus, consectetur id aliquam non, cursus
+            sit amet velit. In ut arcu non nisl pharetra lacinia sit
+            amet nec mi. Aenean orci justo, hendrerit eget luctus
+            sed, placerat sed ligula. Mauris convallis, tortor ac
+            vestibulum semper, orci dui rutrum nunc, nec pulvinar
+            quam justo vulputate justo.
+        </span>
+    </div>
+</body>
+</html>

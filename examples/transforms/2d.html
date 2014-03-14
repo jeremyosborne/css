@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>2d Transformations</title>
+        <style>
+body, html {
+    background-color: black;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    color: white;
+    border: 3px solid #333;
+    height: 10em;
+    width: 10em;
+    margin: 1em auto;
+    padding: 1em;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    text-shadow: 1px 1px 1px black;
+
+    background-color: white;
+
+    background: -moz-linear-gradient(#000, #FFF);
+    background: -ms-linear-gradient(#000, #FFF);    
+    background: -o-linear-gradient(#000, #FFF);
+    background: -webkit-linear-gradient(#000, #FFF);
+    background: linear-gradient(#000, #FFF);
+}
+
+#translate {
+    /* Translate 100px to the right, 100px up. */
+    -moz-transform: translate(100px, -100px);
+    -ms-transform: translate(100px, -100px);
+    -o-transform: translate(100px, -100px);
+    -webkit-transform: translate(100px, -100px);
+    transform: translate(100px, -100px);
+    
+    /* also...
+    -moz-transform: translateX(100px) translateY(-100px);
+    -ms-transform: translateX(100px) translateY(-100px);
+    -o-transform: translateX(100px) translateY(-100px);
+    -webkit-transform: translateX(100px) translateY(-100px);
+    transform: translateX(100px) translateY(-100px);    
+    */
+}
+
+#scale {
+    /* Scale the current size by .5 in the X and Y directions. */
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    
+    /* also, or could use just scaleX and scaleY...
+    -moz-transform: scaleX(0.5) scaleY(0.5);
+    -ms-transform: scaleX(0.5) scaleY(0.5);
+    -o-transform: scaleX(0.5) scaleY(0.5);
+    -webkit-transform: scaleX(0.5) scaleY(0.5);
+    transform: scaleX(0.5) scaleY(0.5);    
+    */
+}
+
+#rotate {
+    /* Rotation requires units, and can be in a positive or negative 
+       direction. */
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#skew {
+    -moz-transform: skewX(10deg) skewY(-20deg);
+    -ms-transform: skewX(10deg) skewY(-20deg);
+    -o-transform: skewX(10deg) skewY(-20deg);
+    -webkit-transform: skewX(10deg) skewY(-20deg);
+    transform: skewX(10deg) skewY(-20deg);
+}
+
+#matrix {
+    /* The following is an example of using the matrix function that equates
+     * to a 45 degree rotation. I am not good with the matrix function, and
+     * as such do not have a grand example for it. */
+    -moz-transform: matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0);
+    -ms-transform: matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0);
+    -o-transform: matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0);
+    -webkit-transform: matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0);
+    transform: matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0);
+}
+        </style>
+    </head>
+    <body>
+        <div id="control">
+            Control (no transform applied).
+        </div>
+    
+        <div id="translate">
+            Translate.
+        </div>
+    
+        <div id="scale">
+            Scale.
+        </div>
+    
+        <div id="rotate">
+            Rotate.
+        </div>
+        
+        <div id="skew">
+            Skew.
+        </div>
+        
+        <div id="matrix">
+            Matrix.
+        </div>
+    </body>
+</html>

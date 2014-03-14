@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Radial Gradient</title>
+        <style>
+body, html {
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    
+    -webkit-perspective: 600;  /* Safari 4+, Chrome 12+ */
+    -moz-perspective: 600;  /* Firefox 10+ */
+    -ms-perspective: 600;  /* IE10+ */
+    perspective: 600;
+}
+#system {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    background-image: 
+        /* earth, first item is on top. */
+        -webkit-radial-gradient(
+            /* Location of the gradient. */
+            75% 75%,
+            /* Shape and size of the gradient. */
+            30px 30px, 
+            /* Color stops. */
+            #2419B2 50%, 
+            #352F85 60%, 
+            #689CD2 70%,
+            /* invisible gradient extent beyond the radius */
+            rgba(0, 0, 0, 0.0) 100%),
+        /* sun */
+        -webkit-radial-gradient(
+            /* Location of the gradient. */
+            center center,
+            /* Shape and size of the gradient. */
+            200px 200px, 
+            /* Color stops. */
+            #ffc500 50%, 
+            #ff9900 60%, 
+            #ff5600 70%,
+            rgba(0, 0, 0, 0.0) 100%),
+        /* mars */
+        -webkit-radial-gradient(
+            /* Location of the gradient. */
+            35% 35%,
+            /* Shape and size of the gradient. */
+            15px 15px, 
+            /* Color stops. */
+            #BC2F36 50%, 
+            #A30008 60%, 
+            #83004F 70%,
+            rgba(0, 0, 0, 0.0) 100%);
+    background-image: 
+        -moz-radial-gradient(
+            /* Location of the gradient. */
+            75% 75%,
+            /* Shape and size of the gradient. */
+            circle closest-side, 
+            /* Color stops. */
+            #2419B2 50%, 
+            #352F85 60%, 
+            #689CD2 70%,
+            rgba(0, 0, 0, 0.0) 100%),
+        -moz-radial-gradient(
+            /* Due to limitations in mozilla, we sort of mimic what we do above
+             * by changint the position and using the relative shaping.
+             */
+            center center,
+            /* Shape and spread of the gradient, can't use absolute size in mozilla. */
+            circle closest-side, 
+            #ffc500 50%,
+            #ff9900 60%, 
+            #ff5600 70%,
+            rgba(0, 0, 0, 0.0) 100%),
+        /* mars */
+        -moz-radial-gradient(
+            10% 10%,
+            circle closest-side, 
+            #BC2F36 50%, 
+            #A30008 60%, 
+            #83004F 70%,
+            rgba(0, 0, 0, 0.0) 100%);    
+}
+
+/* Transition
+#system {
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s ease-out;    
+}
+
+#system:hover {
+    -webkit-transform: rotateY(360deg);  
+    -webkit-transform-style: preserve-3d;
+    -moz-transform: rotateY(360deg);     
+    -moz-transform-style: preserve-3d;
+}
+*/
+
+
+/* Animation
+#system {
+    -moz-animation-name: rotate;
+    -moz-animation-duration: 3s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+
+    -webkit-animation-name: rotate;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes rotate {
+    0% {
+        -webkit-transform: rotateY(0deg);
+        -webkit-transform-style: preserve-3d;
+    }
+    100% {
+        -webkit-transform: rotateY(360deg);
+        -webkit-transform-style: preserve-3d;
+    }
+}
+@-moz-keyframes rotate {
+    0% {
+        -moz-transform: rotateY(0deg);
+        -moz-transform-style: preserve-3d;
+    }
+    100% {
+        -moz-transform: rotateY(360deg);
+        -moz-transform-style: preserve-3d;
+    }
+}
+*/
+
+        </style>
+    </head>
+    <body>
+        <div id="system"></div>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Text Shadow</title>
+        <style>
+body, html {
+    background-color: black;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+div[id] {
+    color: white;
+    border: 3px solid #333;
+    height: 10em;
+    width: 10em;
+    margin: 1em auto;
+    padding: 1em;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    background-color: white;
+    position: relative;
+}
+
+div .content {
+    color: blue;
+    font-size: 4em;
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    margin: -0.8em auto 0 auto;
+    position: relative;
+    top: 50%;
+}
+
+#bottom-left {
+    text-shadow: 1em 1em 0 #ccc;
+}
+
+#bottom-left-blurry {
+    text-shadow: 1em 1em 0.5em #ccc;
+}
+
+#up-blurry {
+    text-shadow: 0 -1.5em 0.5em #ccc;
+}
+
+#multiple {
+    text-shadow: 0 2em 0 #ccc, 2em 0 0 #ccc, 0 -2em 0 #ccc, -2em 0 0 #ccc;
+}
+        </style>
+    </head>
+    <body>
+        <div id="bottom-left">
+            <div class="content">A</div>
+        </div>
+    
+        <div id="bottom-left-blurry">
+            <div class="content">A</div>
+        </div>
+    
+        <div id="up-blurry">
+            <div class="content">A</div>
+        </div>
+
+        <div id="multiple">
+            <div class="content">A</div>
+        </div>
+    </body>
+</html>

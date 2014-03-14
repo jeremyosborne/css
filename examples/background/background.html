@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Background Images</title>
+<style>
+body, html {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    border: 3px solid #333;
+    height: 10em;
+    margin: 1em;
+    padding: 1em;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    background-color: white;
+}
+
+#two-images {
+    border: 2em solid rgba(200, 0, 0, 0.5);
+    background-image: 
+        url('img/fashion-cat.jpg'),
+        url('img/technophobic.jpg');
+    background-position: bottom left, top right;
+    background-repeat: no-repeat; 
+    
+    /* New background-image option: background-size: width height; */
+    background-size: 50px 45px, 49px 47px;
+
+    /* New background option: background-origin:  border-box | padding-box | content-box */
+    background-origin: padding-box;
+    
+    /* New background option: background-clip: border-box | padding-box | content-box */
+    background-clip: padding-box;
+}
+</style>
+</head>
+<body>
+    <div id="two-images">
+        Multiple background images in one element.
+    </div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Linear Gradient</title>
+        <style>
+body, html {
+    background-color: black;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    color: white;
+    border: 3px solid #333;
+    height: 10em;
+    width: 10em;
+    margin: 1em auto;
+    padding: 1em;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    text-shadow: 1px 1px 1px black;
+
+    background-color: white;
+}
+
+#top-to-bottom {     
+    background: -moz-linear-gradient(#000, #FFF);
+    background: -o-linear-gradient(#000, #FFF);
+    background: -webkit-linear-gradient(#000, #FFF);
+    background: linear-gradient(#000, #FFF);
+
+    /* also
+    background: -moz-linear-gradient(270deg, #000, #FFF);
+    background: -o-linear-gradient(270deg, #000, #FFF);
+    background: -webkit-linear-gradient(270deg, #000, #FFF);
+    background: linear-gradient(0deg, #000, #FFF);
+    */
+}
+
+#left-to-right { 
+    background: -moz-linear-gradient(left, #000, #FFF);
+    background: -o-linear-gradient(left, #000, #FFF);
+    background: -webkit-linear-gradient(left, #000, #FFF);
+    background: linear-gradient(to right, #000, #FFF);
+    
+    /* also 
+    background: -moz-linear-gradient(0deg, #000, #FFF);
+    background: -o-linear-gradient(0deg, #000, #FFF);
+    background: -webkit-linear-gradient(0deg, #000, #FFF);
+    background: linear-gradient(90deg, #000, #FFF);
+    */
+}
+
+#diagonal-rainbow {
+    background: -moz-linear-gradient(top left, red, orange, yellow, green, blue, indigo, violet);
+    background: -o-linear-gradient(top left, red, orange, yellow, green, blue, indigo, violet);
+    background: -webkit-linear-gradient(top left, red, orange, yellow, green, blue, indigo, violet);    
+    background: linear-gradient(to bottom right, red, orange, yellow, green, blue, indigo, violet);    
+
+    /* also
+    background: -moz-linear-gradient(-45deg, red, orange, yellow, green, blue, indigo, violet);
+    background: -o-linear-gradient(-45deg, red, orange, yellow, green, blue, indigo, violet);
+    background: -webkit-linear-gradient(-45deg, red, orange, yellow, green, blue, indigo, violet);    
+    background: linear-gradient(135deg, red, orange, yellow, green, blue, indigo, violet);    
+    */
+}
+
+#variable-width {    
+    background: -moz-linear-gradient(left, #000 10%, #F00 40%, #0F0 70%, #00F 95%, #000);
+    background: -o-linear-gradient(left, #000 10%, #F00 40%, #0F0 70%, #00F 95%, #000);
+    background: -webkit-linear-gradient(left, #000 10%, #F00 40%, #0F0 70%, #00F 95%, #000);
+    background: linear-gradient(to right, #000 10%, #F00 40%, #0F0 70%, #00F 95%, #000);
+}
+
+#repeating {
+    /* Note: a linear gradient that extends through the full dimensions of a box
+       will not appear to repeat. Stops must be placed to cause a gradient to
+       repeat visibly. */
+    background-image: -moz-repeating-linear-gradient(-45deg, white 10%, black 20%);
+    background-image: -o-repeating-linear-gradient(-45deg, white 10%, black 20%);
+    background-image: -webkit-repeating-linear-gradient(-45deg, white 10%, black 20%);
+    background-image: repeating-linear-gradient(135deg, white 10%, black 20%);
+}
+
+#repeating-a-linear-gradient {
+    /* Because linear gradients are treated as images, in this case a background
+       image, they can be modified just like background images. */
+    background-image: -moz-linear-gradient(-45deg, white, black);
+    background-image: -o-linear-gradient(-45deg, white, black);
+    background-image: -webkit-linear-gradient(-45deg, white, black);
+    background-image: linear-gradient(135deg, white, black);
+    
+    background-size: 40px 40px;
+    /* The following is redundant, but included to ease modifications. */
+    background-repeat: repeat;
+}
+        </style>
+    </head>
+    <body>
+        <div id="top-to-bottom">
+            Gradient from top to bottom.
+        </div>
+    
+        <div id="left-to-right">
+            Gradient from left to right.
+        </div>
+    
+        <div id="diagonal-rainbow">
+            Diagonal rainbow gradient.
+        </div>
+    
+        <div id="variable-width">
+            Variable width gradient.
+        </div>
+        
+        <div id="repeating">
+            Repeating linear gradient using the repeating-linear-gradient.
+        </div>
+        
+        <div id="repeating-a-linear-gradient">
+            Repeating a linear gradient using background-repeat and 
+            background-size.
+        </div>
+    </body>
+</html>

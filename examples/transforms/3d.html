@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>3d Transformations</title>
+        <style>
+body, html {
+    background-color: black;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* We place our vision an imaginary number of pixels from the container
+       our element that we're going to transform. 
+       At the time of writing this example, opera does not support 3d 
+       transforms. */
+    -moz-perspective: 600px;
+    -ms-perspective: 600px;
+    -webkit-perspective: 600px;
+    perspective: 600px;
+}
+
+div {
+    color: white;
+    border: 3px solid #333;
+    height: 10em;
+    width: 10em;
+    margin: 1em auto;
+    padding: 1em;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    text-shadow: 1px 1px 1px black;
+
+    background-color: white;
+
+    background: -moz-linear-gradient(#000, #FFF);
+    background: -ms-linear-gradient(#000, #FFF);    
+    background: -o-linear-gradient(#000, #FFF);
+    background: -webkit-linear-gradient(#000, #FFF);
+    background: linear-gradient(#000, #FFF);
+}
+
+#translate {
+    /* Translate 100px to the right, 100px up, and 100px farther from the viewer. */
+    -moz-transform: translate3d(100px, -100px, -100px);
+    -ms-transform: translate3d(100px, -100px, -100px);
+    -o-transform: translate3d(100px, -100px, -100px);
+    -webkit-transform: translate3d(100px, -100px, -100px);
+    transform: translate3d(100px, -100px, -100px);
+    
+    /* also...
+    -moz-transform: translateX(100px) translateY(-100px) translateZ(-100px);
+    -ms-transform: translateX(100px) translateY(-100px) translateZ(-100px);
+    -o-transform: translateX(100px) translateY(-100px) translateZ(-100px);
+    -webkit-transform: translateX(100px) translateY(-100px) translateZ(-100px);
+    transform: translateX(100px) translateY(-100px) translateZ(-100px);
+    */
+}
+
+#scale {
+    /* Scale the current size by .5 in the X and Y, but doubles the 
+     * Z scaling. The Z scale is difficult to see without a rotation for the 
+     * added perspective so this includes a rotation. Tweak the z direction 
+     * to see the effect of the z scale. */
+    -moz-transform: scale3d(0.5, 0.5, 2) rotateY(45deg);
+    -ms-transform: scale3d(0.5, 0.5, 2) rotateY(45deg);
+    -o-transform: scale3d(0.5, 0.5, 2) rotateY(45deg);
+    -webkit-transform: scale3d(0.5, 0.5, 2) rotateY(45deg);
+    transform: scale3d(0.5, 0.5, 2) rotateY(45deg);
+    
+    /* also, or could use just scaleX and scaleY...
+    -moz-transform: scaleX(0.5) scaleY(0.5) scaleZ(2) rotateY(45deg);
+    -ms-transform: scaleX(0.5) scaleY(0.5) scaleZ(2) rotateY(45deg);
+    -o-transform: scaleX(0.5) scaleY(0.5) scaleZ(2) rotateY(45deg);
+    -webkit-transform: scaleX(0.5) scaleY(0.5) scaleZ(2) rotateY(45deg);
+    transform: scaleX(0.5) scaleY(0.5) scaleZ(2) rotateY(45deg);
+    */
+}
+
+#rotate {
+    /* Rotation requires units, and can be in a positive or negative 
+       direction. */
+    -moz-transform: rotate(45deg) rotateY(45deg) rotateZ(45deg);
+    -ms-transform: rotate(45deg) rotateY(45deg) rotateZ(45deg);
+    -o-transform: rotate(45deg) rotateY(45deg) rotateZ(45deg);
+    -webkit-transform: rotate(45deg) rotateY(45deg) rotateZ(45deg);
+    transform: rotate(45deg) rotateY(45deg) rotateZ(45deg);
+}
+        </style>
+    </head>
+    <body>
+        <div id="control">
+            Control (no transform applied).
+        </div>
+    
+        <div id="translate">
+            Translate.
+        </div>
+    
+        <div id="scale">
+            Scale.
+        </div>
+    
+        <div id="rotate">
+            Rotate.
+        </div>        
+    </body>
+</html>

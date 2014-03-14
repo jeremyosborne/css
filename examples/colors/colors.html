@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Colors</title>
+        <style>
+body, html {
+    background-color: white;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    color: white;
+    position: relative;
+    border: 3px solid #333;
+    height: 90%;
+    width: 90%;
+    top: 5%;
+    margin: 0 auto;
+
+    border: 1px solid black;
+
+    background-color: white;
+}
+div > h1 {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: sans-serif;
+    text-shadow: 1px 1px 1px black;
+}
+
+#rgb {
+    background-color: rgb(0, 0, 255);
+}
+
+#rgba {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+#hsl {
+    /* Green. */
+    background-color: hsl(120, 100%, 25%);
+}
+
+#hsla {
+    /* Red. */
+    background-color: hsla(0, 100%, 50%, 0.5);
+}
+        </style>
+    </head>
+    <body>
+        <div id="rgb">
+            <h1>rgb</h1>
+            <div id="rgba">
+                <h1>rgba</h1>
+                <div id="hsl">
+                    <h1>hsl</h1>
+                    <div id="hsla">
+                        <h1>hsla</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

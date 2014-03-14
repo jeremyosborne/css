@@ -1,0 +1,219 @@
+/* Color theme: https://kuler.adobe.com/#themeID/2204577 */
+
+/* Basic reset. */
+body, html {
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    color: black;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+a, a:visited, a:link, a:hover {
+    text-decoration: none;
+    color: #444;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.hidden {
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    -webkit-transition: all 0.5s linear;
+    opacity: 0;
+}
+
+/* Basic design and overrides. */
+body {
+    background-color: #3D2C25;
+}
+body > h1 {
+    padding: 1em;
+    text-align: right;
+    color: #7D7757;
+    
+    box-shadow: 0 0.1em 0.2em #5C4F3E;
+}
+
+
+
+/* ADD FROM HERE!! */
+/* 
+  Set the article within the middle of the page, giving some margins. 
+  Give a min width, assuming that our media queries just might break.
+ */
+article {
+    position: relative;
+    
+    background-color: white;
+    width: 78%;
+    padding: 1%;
+    min-width: 640px;
+    margin: 2em auto;
+    
+    /* Clearfix */
+    overflow: auto;
+    
+    /* We often want to modify the line height for clarity in reading, 
+     * especially on high res devices. */
+    font-size: 1.1em;
+    line-height: 1.4;
+}
+/* Where we can take advantage of CSS3 columns, take advantage of them for
+   content. This will fail silently in browsers that don't support it. */
+article .article-content {
+    -webkit-column-count: 2;
+    -webkit-column-gap: 1em;
+    
+    -moz-column-count: 2;
+    -moz-column-gap: 1em;
+    
+    column-count: 2;
+    column-gap: 1em;
+}
+article p {
+    margin-top: 0;
+}
+article header {
+    border-bottom: 1px solid #3D2C25;
+    position: relative;
+}
+
+/* We'll use the date as a good demonstration of moving stuff around. */
+article header time {
+    position: absolute;
+
+    height: 4em;
+    width: 4em;
+    bottom: 0em;
+    right: 0em;
+
+    font-size: 0.6em;
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+
+    background-color: #7D7757;
+}
+
+/*
+  The figure will act as a container for our article.
+  The image itself is flexible, within reason, inside of the container.
+  As with all of this code, we're pretending we have an HTML 5 shim and it
+  won't break IE.
+ */
+article section > figure {
+    width: 24%;
+    padding: 0.5%;
+    margin: 0 1em 1em 0;
+    float: left;
+    background-color: #5C4F3E;
+}
+/* We treat single images as left aligns within our content. */
+article section > figure img {
+    max-width: 100%;
+}
+article section > figure figcaption {
+    font-family: sans-serif;
+    font-size: 0.8em;
+    color: white;
+    background-color: #5C4F3E;
+}
+
+/* We give a bit of different treatment to our figure grid.
+ * A bit of cut and paste + corrections will help with the figure
+ * and figcaption elements.
+ */
+.figure-grid {
+    width: 90%;
+    margin: 0 auto;
+    overflow: auto;
+}
+/* For everything to fit nicely in our grid, we need the elements to add
+ * up to no more than 25% width.
+ * We do these a bit more carefully than above and instead of using a border
+ * which cannot be given a relative width (unfortunately) we use padding +
+ * background color within the figure to give the idea of a border.
+ */
+.figure-grid figure {
+    width: 23%;
+    padding: 0.5%;
+    margin: 0.5%;
+    float: left;
+    background-color: #5C4F3E;
+}
+.figure-grid figure img {
+    max-width: 100%;
+}
+.figure-grid figure figcaption {
+    font-family: sans-serif;
+    font-size: 0.8em;
+    color: white;
+    background-color: #5C4F3E;
+}
+
+
+
+/*
+ * What we've done above is setup our site for large view.
+ * Ideally, what we've done in our brainstorming sessions is prepare
+ * for what our site looks like on the smallest real estate browser
+ * possible.
+ * 
+ * We'll create a good set of standard widths to respond to.
+ * 
+ * Also, every change we make will be additive. Sometimes bracketed changes
+ * are good, but the widths we are dealing with are good buckets to remember.
+ */
+
+/* For regular size view and below */
+@media only screen and (max-width: 1024px) {
+    /* Remove the multiple columns. */
+    article .article-content {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+    }
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+    /* Change the grid to a 2 x 2 grid. */
+    .figure-grid figure {
+        width: 48%;
+    }
+    /* Remove the positioning from the header container. This will cause the
+     * publish date to go to the lower right of the article.
+     */
+    article header {
+        position: static;
+    }
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (max-width: 767px) {
+    /* Push our articles to the edge to give the entire layout more room. */
+    article {
+        width: auto;
+        min-width: 0;
+    }
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+    /* No more floating images. Inline everything. */
+    article section > figure,
+    .figure-grid figure {
+        display: block;
+        width: 50%;
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
