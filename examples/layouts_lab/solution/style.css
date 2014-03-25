@@ -1,0 +1,79 @@
+/*  Basic reset. */
+body, html {
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    color: black;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+a, a:visited, a:link, a:hover {
+    text-decoration: none;
+    color: #444;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.hidden {
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    -webkit-transition: all 0.5s linear;
+    opacity: 0;
+}
+
+/*  Basic design. */
+body > h1 {
+    padding: 1em;
+    text-align: right;
+    color: #555;
+    
+    box-shadow: 0 0.1em 0.2em rgba(180,180,180,0.5);
+}
+
+
+
+/*  A general solution to the lab. */
+/*  Without using box-sizing... */
+.floating-columns {
+    overflow: auto;
+    background-color: #e0e0e0;
+}
+.floating-columns p {
+    width: 48%;
+    height: 200px;
+    padding: 1%;
+    overflow: auto;
+    float: left;
+}
+/*  NOTE: The inline-block requires correcting of the HTML, and the class
+    HTML will be provided in an uncorrected state. */
+.inline-block-columns {
+    background-color: #e0e0e0;
+}
+.inline-block-columns p {
+    width: 48%;
+    padding: 1%;
+    display: inline-block;
+    vertical-align: top;
+}
+/*  PART 2: Switch to using box-sizing border-box.
+    The changes are simple and should be self-explanatory by this point. */
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;    
+}
+.floating-columns p {
+    width: 50%;
+}
+.inline-block-columns p {
+    width: 50%;
+}
+
+

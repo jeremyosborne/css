@@ -1,0 +1,40 @@
+/*  Basic reset. */
+body, html {
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    color: black;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+a, a:visited, a:link, a:hover {
+    text-decoration: none;
+    color: #444;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.hidden {
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    -webkit-transition: all 0.5s linear;
+    opacity: 0;
+}
+
+/*  Basic design. */
+body > h1 {
+    padding: 1em;
+    text-align: right;
+    color: #555;
+    
+    box-shadow: 0 0.1em 0.2em rgba(180,180,180,0.5);
+}
+
+
+
