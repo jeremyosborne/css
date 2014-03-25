@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>Poker Cards</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <style id="example-code">
+/* Card. */
+.card {
+    width: 16rem; /* ~256px */
+    height: 22.4rem; /* ~358px */
+    position: relative;
+    display: inline-block;
+
+    font-size: 2rem;
+    font-family: Helvetica, Arial, sans-serif;
+
+    border: 1px solid #333;
+    border-radius: 10px;
+
+    background-color: white;
+
+    background-repeat: no-repeat;
+    background-size: 2rem 2rem;
+}
+/* Place the alphanumeric card value (2, 3...K, A)
+ */
+.card:before {
+    display: inline-block;
+    width: 2rem;
+    text-align: center;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+.card:after {
+    display: inline-block;
+    width: 2rem;
+    text-align: center;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+/* Card suits.
+ * Need max 12 background images: 2 for corner suit markers (upper left/lower right)
+ * and potentially 10 to display card value. Apply all, only show what we
+ * need.
+ */
+.clubs {
+    color: black;
+    background-image: url(img/cardsuit_clubs.svg),
+        url(img/cardsuit_clubs.svg),
+        url(img/cardsuit_clubs.svg),
+        url(img/cardsuit_clubs.svg),
+        url(img/cardsuit_clubs.svg),
+        url(img/cardsuit_clubs.svg),
+        url(img/cardsuit_clubs.svg),
+        url(img/cardsuit_clubs.svg),
+        url(img/cardsuit_clubs.svg),
+        url(img/cardsuit_clubs.svg),
+        url(img/cardsuit_clubs.svg),
+        url(img/cardsuit_clubs.svg);
+}
+.diamonds {
+    color: #D40000;
+    background-image: url(img/cardsuit_diamonds.svg),
+        url(img/cardsuit_diamonds.svg),
+        url(img/cardsuit_diamonds.svg),
+        url(img/cardsuit_diamonds.svg),
+        url(img/cardsuit_diamonds.svg),
+        url(img/cardsuit_diamonds.svg),
+        url(img/cardsuit_diamonds.svg),
+        url(img/cardsuit_diamonds.svg),
+        url(img/cardsuit_diamonds.svg),
+        url(img/cardsuit_diamonds.svg),
+        url(img/cardsuit_diamonds.svg),
+        url(img/cardsuit_diamonds.svg);
+}
+.hearts {
+    color: #D40000;
+    background-image: url(img/cardsuit_hearts.svg),
+        url(img/cardsuit_hearts.svg),
+        url(img/cardsuit_hearts.svg),
+        url(img/cardsuit_hearts.svg),
+        url(img/cardsuit_hearts.svg),
+        url(img/cardsuit_hearts.svg),
+        url(img/cardsuit_hearts.svg),
+        url(img/cardsuit_hearts.svg),
+        url(img/cardsuit_hearts.svg),
+        url(img/cardsuit_hearts.svg),
+        url(img/cardsuit_hearts.svg),
+        url(img/cardsuit_hearts.svg),
+        url(img/cardsuit_hearts.svg);
+}
+.spades {
+    color: black;
+    background-image: url(img/cardsuit_spades.svg),
+        url(img/cardsuit_spades.svg),
+        url(img/cardsuit_spades.svg),
+        url(img/cardsuit_spades.svg),
+        url(img/cardsuit_spades.svg),
+        url(img/cardsuit_spades.svg),
+        url(img/cardsuit_spades.svg),
+        url(img/cardsuit_spades.svg),
+        url(img/cardsuit_spades.svg),
+        url(img/cardsuit_spades.svg),
+        url(img/cardsuit_spades.svg),
+        url(img/cardsuit_spades.svg),
+        url(img/cardsuit_spades.svg);
+}
+
+/* Value layout.
+ * First two values are corner markers for suit (upper left, lower right).
+ */
+.two {
+    background-position: 1rem 3.3rem, 12.9rem 17rem,
+        center 25%,
+        center 75%;
+}
+.two:before, .two:after {
+    content: "2";
+}
+
+.three {
+    background-position: 1rem 3.3rem, 12.9rem 17rem,
+        center 25%,
+        center center,
+        center 75%;
+}
+.three:before, .three:after {
+    content: "3";
+}
+
+.four {
+    background-position: 1rem 3.3rem, 12.9rem 17rem,
+        25% 25%,
+        25% 75%,
+        75% 25%,
+        75% 75%;
+}
+.four:before, .four:after {
+    content: "4";
+}
+
+.five {
+    background-position: 1rem 3.3rem, 12.9rem 17rem,
+        25% 25%,
+        25% 75%,
+        center, center,
+        75% 25%,
+        75% 75%;
+}
+.five:before, .five:after {
+    content: "5";
+}
+
+.six {
+    background-position: 1rem 3.3rem, 12.9rem 17rem,
+        25% 25%,
+        25% center,
+        25% 75%,
+        75% 25%,
+        75% center,
+        75% 75%;
+}
+.six:before, .six:after {
+    content: "6";
+}
+
+.seven {
+    background-position: 1rem 3.3rem, 12.9rem 17rem,
+        25% 25%,
+        25% center,
+        25% 75%,
+        center center,
+        75% 25%,
+        75% center,
+        75% 75%;
+}
+.seven:before, .seven:after {
+    content: "7";
+}
+
+.eight {
+    background-position: 1rem 3.3rem, 12.9rem 17rem,
+        25% 25%,
+        25% center,
+        25% 75%,
+        center 33%,
+        center 66%,
+        75% 25%,
+        75% center,
+        75% 75%;
+}
+.eight:before, .eight:after {
+    content: "8";
+}
+
+.nine {
+    background-position: 1rem 3.3rem, 12.9rem 17rem,
+        25% 20%,
+        25% 40%,
+        25% 60%,
+        25% 80%,
+        center center,
+        75% 20%,
+        75% 40%,
+        75% 60%,
+        75% 80%;
+}
+.nine:before, .nine:after {
+    content: "9";
+}
+
+.ten {
+    background-position: 1rem 3.3rem, 12.9rem 17rem,
+        25% 20%,
+        25% 40%,
+        25% 60%,
+        25% 80%,
+        center 33%,
+        center 66%,
+        75% 20%,
+        75% 40%,
+        75% 60%,
+        75% 80%;
+}
+.ten:before, .ten:after {
+    content: "10";
+}
+
+/* Jack, queen, king, ace get image overrides. */
+.jack, .queen, .king, .ace {
+    background-position: 1rem 3.3rem, 12.9rem 17rem,
+        center center;
+    background-size: 2rem 2rem, 2rem 2rem,
+        6rem 6rem;
+}
+.jack.clubs {
+    background-image: url(img/cardsuit_clubs.svg), url(img/cardsuit_clubs.svg),
+        url(img/black_jack.svg);
+}
+.jack.spades {
+    background-image: url(img/cardsuit_spades.svg), url(img/cardsuit_spades.svg),
+        url(img/black_jack.svg);
+}
+.jack.diamonds {
+    background-image: url(img/cardsuit_diamonds.svg), url(img/cardsuit_diamonds.svg),
+        url(img/red_jack.svg);
+}
+.jack.hearts {
+    background-image: url(img/cardsuit_hearts.svg), url(img/cardsuit_hearts.svg),
+        url(img/red_jack.svg);
+}
+.jack:before, .jack:after {
+    content: "J";
+}
+
+.queen.clubs {
+    background-image: url(img/cardsuit_clubs.svg), url(img/cardsuit_clubs.svg),
+        url(img/black_queen.svg);
+}
+.queen.spades {
+    background-image: url(img/cardsuit_spades.svg), url(img/cardsuit_spades.svg),
+        url(img/black_queen.svg);
+}
+.queen.diamonds {
+    background-image: url(img/cardsuit_diamonds.svg), url(img/cardsuit_diamonds.svg),
+        url(img/red_queen.svg);
+}
+.queen.hearts {
+    background-image: url(img/cardsuit_hearts.svg), url(img/cardsuit_hearts.svg),
+        url(img/red_queen.svg);
+}
+.queen:before, .queen:after {
+    content: "Q";
+}
+
+.king.clubs {
+    background-image: url(img/cardsuit_clubs.svg), url(img/cardsuit_clubs.svg),
+        url(img/black_king.svg);
+}
+.king.spades {
+    background-image: url(img/cardsuit_spades.svg), url(img/cardsuit_spades.svg),
+        url(img/black_king.svg);
+}
+.king.diamonds {
+    background-image: url(img/cardsuit_diamonds.svg), url(img/cardsuit_diamonds.svg),
+        url(img/red_king.svg);
+}
+.king.hearts {
+    background-image: url(img/cardsuit_hearts.svg), url(img/cardsuit_hearts.svg),
+        url(img/red_king.svg);
+}
+.king:before, .king:after {
+    content: "K";
+}
+
+/* Ace uses a large card suit. */
+.ace:before, .ace:after {
+    content: "A";
+}
+        </style>
+        <script>
+window.onload = function() {
+    var cardSuits = ["clubs", "diamonds", "hearts", "spades"];
+    var cardValues = [ "two", "three", "four", "five", "six", "seven",
+        "eight", "nine", "ten", "jack", "queen", "king", "ace"];
+    var i, j;
+    var card;
+    for (i = 0; i < cardSuits.length; i++) {
+        for (j = 0; j < cardValues.length; j++) {
+            card = document.createElement("div");
+            card.className = "card " + cardSuits[i] + " " + cardValues[j];
+            document.querySelector("#card-deck").appendChild(card);
+        }
+    }
+};
+        </script>
+    </head>
+    <body>
+        <noscript>
+            <div class="warning">
+                Please enable JavaScript to generate the playing cards.
+            </div>
+        </noscript>
+        <div id="card-deck"></div>
+    </body>
+</html>
