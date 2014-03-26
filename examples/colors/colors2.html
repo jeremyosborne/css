@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>Colors</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css" rel="stylesheet"/>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/default.min.css" rel="stylesheet"/>
+        <style id="example-code">
+/*  The HSLA color is blue(ish). */
+#test {
+    color: #00A600;
+    background-color: rgba(255, 0, 0, 0.5);
+    border: 1em solid hsla(240, 100%, 50%, 0.5);
+}
+/*  Opacity effects this element and all child elements child elements. */
+#test2 {
+    opacity: 0.4;
+    color: #00A600;
+    background-color: rgba(255, 0, 0, 0.5);
+    border: 1em solid hsla(240, 100%, 50%, 0.5);
+}
+/*  Can't turn up opacity once it is turned down on a parent element. */
+#test3 {
+    opacity: 1.0; /* 0.0 to 1.0 are the only legal values. Feel free to test. */
+    color: black;
+}
+        </style>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/highlight.min.js"></script>
+        <script>
+/*
+ * Source code, not programmatically generated. Used by the examples.
+ */
+$(document).ready(function() {
+    // Code highlighting produces an HTML string output.
+    var code = $("#example-code").html();
+    var highlighted = hljs.highlight( "css", code.trim() ).value
+    $("<div class='example-code-display'><p>Example Code<p><pre><code class='css'></code></pre></div>")
+        .find(".css")
+        // Insert our syntax highlighted code into the correct container.
+        .html(highlighted)
+        // Get back to the container div.
+        .parent().parent()
+        .appendTo("body");
+
+    // Insert the title into the page as the header dynamically.
+    // Allows me to write the title once since I'm writing the html by hand
+    // for right now.
+    $("<header><h1></h1></header>")
+        .find("h1")
+        .append( $("title").html() )
+        .parent()
+        .prependTo("body");
+});
+        </script>
+    </head>
+    <body>
+        <noscript>
+            <div class="warning">
+                Example description is rendered dynamically with JavaScript. Please enable JavaScript to see the explanation.
+            </div>
+        </noscript>
+        <div id="test">
+            It was the best of times, it was the worst of times,
+        </div>
+        <div id="test2">
+             it was the age of wisdom, it was the age of foolishness,
+             <div id="test3">
+                it was the epoch of belief, it was the epoch of incredulity...
+             </div>
+        </div>
+    </body>
+</html>

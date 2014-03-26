@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>Transforms (2d)</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css" rel="stylesheet"/>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/default.min.css" rel="stylesheet"/>
+        <style id="example-code">
+/*  Transforms occur after the regular layout of the page. Each of the
+    transformed elements is contained within another element. The container
+    shows where the element would have been minus the transformation. In
+    the case of the control element, the container is not seen. */
+
+/*  Rotate in the clockwise direction. Rotations can leave visual artifacts,
+    good to visually inspect before deploying and assuming they work. */
+#test {
+    -moz-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+}
+/*  Just as the other rotation example, except we change the origination
+    of the transform. The transform here happens at the lower right corner
+    of the box. */
+#test2 {
+    -moz-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+
+    -moz-transform-origin: 100% 100%;
+    -ms-transform-origin: 100% 100%;
+    -o-transform-origin: 100% 100%;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+}
+/*  Scale takes a unitless scalar. Here we layout the element and then
+    shrink it's size by 1/2, which essentially acts as a digital zoom out */
+#test3 {
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+}
+/*  Shear/distort an element. (I'm a horrible person to describe skew as I've
+    never found a real use for it.) */
+#test4 {
+    -moz-transform: skewX(10deg) skewY(-20deg);
+    -ms-transform: skewX(10deg) skewY(-20deg);
+    -o-transform: skewX(10deg) skewY(-20deg);
+    -webkit-transform: skewX(10deg) skewY(-20deg);
+    transform: skewX(10deg) skewY(-20deg);
+}
+/*  Translate is effectively a repositioning of an element, much like an
+    applied position:relative; rule that can be applied on top of any
+    preexisting positioning already applied to the element. */
+#test5 {
+    -moz-transform: translate(5em, -5em);
+    -ms-transform: translate(5em, -5em);
+    -o-transform: translate(5em, -5em);
+    -webkit-transform: translate(5em, -5em);
+    transform: translate(5em, -5em);
+}
+/*  General styling. The test-dummy-container contains our translated elements.
+    The contained elements will take on the proportions of their parent. */
+.test-dummy-container {
+    width: 10em;
+    height: 10em;
+    margin: 5em auto;
+
+    background-color: white;
+}
+.test-dummy {
+    width: 100%;
+    height: 100%;
+
+    padding: 0.5em;
+    background-color: black;
+}
+        </style>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/highlight.min.js"></script>
+        <script>
+/*
+ * Source code, not programmatically generated. Used by the examples.
+ */
+$(document).ready(function() {
+    // Code highlighting produces an HTML string output.
+    var code = $("#example-code").html();
+    var highlighted = hljs.highlight( "css", code.trim() ).value
+    $("<div class='example-code-display'><p>Example Code<p><pre><code class='css'></code></pre></div>")
+        .find(".css")
+        // Insert our syntax highlighted code into the correct container.
+        .html(highlighted)
+        // Get back to the container div.
+        .parent().parent()
+        .appendTo("body");
+
+    // Insert the title into the page as the header dynamically.
+    // Allows me to write the title once since I'm writing the html by hand
+    // for right now.
+    $("<header><h1></h1></header>")
+        .find("h1")
+        .append( $("title").html() )
+        .parent()
+        .prependTo("body");
+});
+        </script>
+    </head>
+    <body>
+        <noscript>
+            <div class="warning">
+                Example description is rendered dynamically with JavaScript. Please enable JavaScript to see the explanation.
+            </div>
+        </noscript>
+        <div id="control" class="test-dummy-container">
+            <div class="test-dummy">Control</div>
+        </div>
+        <div class="test-dummy-container">
+            <div id="test" class="test-dummy">Rotated</div>
+        </div>
+        <div class="test-dummy-container">
+            <div id="test2" class="test-dummy">Rotated (with modified transform origin)</div>
+        </div>
+        <div class="test-dummy-container">
+            <div id="test3" class="test-dummy">Scaled</div>
+        </div>
+        <div class="test-dummy-container">
+            <div id="test4" class="test-dummy">Skewed</div>
+        </div>
+        <div class="test-dummy-container">
+            <div id="test5" class="test-dummy">Translated</div>
+        </div>
+</body>
+</html>

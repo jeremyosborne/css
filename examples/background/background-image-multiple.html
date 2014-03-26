@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>Background Images</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css" rel="stylesheet"/>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/default.min.css" rel="stylesheet"/>
+        <style id="example-code">
+#test {
+    /* Multiple background images, images using data URI. */
+    background-image:
+        url(data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7),
+        url(data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7);
+    /* Position background images separately. */
+    background-position: left top, 50% 50%;
+    /* Apply the same rule to all background images. */
+    background-repeat: no-repeat;
+    /* Size background images. */
+    background-size: 20px 20px, 3em 3em;
+
+    width: 10em;
+    height: 10em;
+    margin: 1em auto;
+    border: 1px solid #ccc;
+}
+        </style>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/highlight.min.js"></script>
+        <script>
+/*
+ * Source code, not programmatically generated. Used by the examples.
+ */
+$(document).ready(function() {
+    // Code highlighting produces an HTML string output.
+    var code = $("#example-code").html();
+    var highlighted = hljs.highlight( "css", code.trim() ).value
+    $("<div class='example-code-display'><p>Example Code<p><pre><code class='css'></code></pre></div>")
+        .find(".css")
+        // Insert our syntax highlighted code into the correct container.
+        .html(highlighted)
+        // Get back to the container div.
+        .parent().parent()
+        .appendTo("body");
+
+    // Insert the title into the page as the header dynamically.
+    // Allows me to write the title once since I'm writing the html by hand
+    // for right now.
+    $("<header><h1></h1></header>")
+        .find("h1")
+        .append( $("title").html() )
+        .parent()
+        .prependTo("body");
+});
+        </script>
+    </head>
+    <body>
+        <noscript>
+            <div class="warning">
+                Example description is rendered dynamically with JavaScript. Please enable JavaScript to see the explanation.
+            </div>
+        </noscript>
+        <div id="test"></div>
+    </body>
+</html>
