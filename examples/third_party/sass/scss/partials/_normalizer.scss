@@ -1,0 +1,19 @@
+// Partial file. To be included. Underscore in name is a stylistic norm.
+@mixin box-sizing($val) {
+    -moz-box-sizing: $val;
+    -webkit-box-sizing: $val;
+    box-sizing: $val;
+}
+
+* {
+    @include box-sizing(border-box);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}

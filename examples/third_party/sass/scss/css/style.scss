@@ -1,0 +1,68 @@
+// Main css file.
+// Import our small amount of normalization.
+@import 'normalizer';
+
+// Simple variable definition.
+$numColumns: 2;
+
+$fgcolor: #888;
+// Colors can be added or differenced. Should make a light blue.
+$bgcolor: white - rgb(50, 50, 0);
+
+// Multiple values creates a "list" type.
+$sans-fonts: Helvetica, Verdana, Arial, sans-serif;
+$serif-fonts: "Palatino Linotype", Times, serif;
+
+.banner {
+    font-family: $sans-fonts;
+    text-align: right;
+
+    padding: 1em;
+
+    color: $fgcolor;
+    // Nesting of rules (this becomes background-color).
+    background: {
+        color: $bgcolor;
+    }
+}
+
+.book-links {
+    // dereference all list values.
+    font-family: $serif-fonts;
+
+    // Nesting implies descendent selections when transpiled.
+    ul, li {
+        padding: 0;
+        margin: 0;
+        display: inline-block;
+    }
+    a {
+        // Parent reference via &, in this case a.
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.info {
+    width: 80%;
+
+    margin: 0 auto;
+
+    // dereference all list values.
+    font-family: $serif-fonts;
+    line-height: 1.3;
+
+    .column {
+        display: inline-block;
+        // Supported math. Units are added/removed like in "real" math.
+        width: (100% / $numColumns);
+        vertical-align: top;
+        padding: 0.5em;
+    }
+}
+
+.footer {
+    text-align: center;
+    font-size: 80%;
+}
