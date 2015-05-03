@@ -1,0 +1,78 @@
+.card-container {
+    /* Governs the entire size of the card. */
+    height: 32em;
+    width: 24em;
+
+    /* Allow positioning within the container. */
+    position: relative;
+    padding: 0;
+
+    overflow: hidden;
+
+    background-color: #ccc;
+    border: 0.1em solid #aaa;
+    border-radius: 1em;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+
+    font-family: sans-serif;
+}
+.card-title {
+    margin-top: 0;
+    padding: 0.4em 1em 0.2em 1em;
+
+    /* Flush with the top of the card */
+    border-radius: 1em 1em 0 0;
+    -moz-border-radius: 1em 1em 0 0;
+    -webkit-border-radius: 1em 1em 0 0;
+
+    background-color: #fff;
+}
+.card-image-container {
+    /* Allow us to absolutely position the image byline inside. */
+    position: relative;
+    
+    /* Center and size within dimensions of card. */
+    height: 14.4em;
+    width: 18.72em; /* maintains 1.3 aspect ratio */
+    margin: 1em auto 0 auto;
+
+    background-color: #eee;
+}
+.card-image {
+    /* Stretch image to fill container. */
+    height: 100%;
+    width: 100%;
+}
+.card-image-byline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    padding: 0 0 0.1em 0.1em;
+    
+    background-color: transparent;
+    /* TODO: Adjust the color along with tone of image. */
+    color: white;
+
+    font-size: 0.7em;
+}
+.card-description {
+    width: 100%;
+    height: 12em;
+    margin: 1em auto 0 auto;
+
+    padding: 0.1em 0.2em 0.1em 0.2em;
+
+    background-color: #ddd;
+}
+.card-by-line {
+    height: 1.2em;
+    padding: 0.4em 1em 0.2em 1em;
+
+    /* Flush with the top of the card */
+    border-radius: 0 0 1em 1em;
+    -moz-border-radius: 0 0 1em 1em;
+    -webkit-border-radius: 0 0 1em 1em;
+    background-color: #fff;
+}

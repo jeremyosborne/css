@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Card Structure</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="card.css">
+        <script src="model.js"></script>
+        <script id="card-template" type="text/plain">
+<div class="card-container">
+    <div class="card-title">{{title}}</div>
+    <div class="card-image-container">
+        <!-- only show one or the other, not both. Precedence goes to url -->
+        {{#if image.url}}
+        <img class="card-image" src="{{image.url}}">
+        {{else}}
+            {{#if image.base64}}
+        <img class="card-image" src="data:;base64,{{image.base64}}">
+            {{/if}}
+        {{/if}}
+        {{#if image.byline}}
+        <div class="card-image-byline">{{image.byline}}</div>
+        {{/if}}
+    </div>
+    <div class="card-description">{{description}}</div>
+    <div class="card-by-line">{{byline}}</div>
+</div>
+        </script>
+        <script src="lib/handlebars.1.0.0.beta.3.js"></script>
+        <script>
+window.onload = init;
+
+function init() {
+    var s = document.getElementById("card-template"),
+        cardTemplate = Handlebars.compile(s.text || s.textContent);
+
+    document.body.innerHTML = cardTemplate(card);
+}
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
